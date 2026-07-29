@@ -1,0 +1,104 @@
+/* global styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "poppins", sans-serif;
+    background-color: #d0e8f2;
+    color: #001f3f;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #001f3f;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+li, button, label, input, p {
+    font-size: 2rem;
+    color: #001f3f;
+}
+
+h2 {
+    font-size: 4.8rem;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+h4, h5 {
+    font-size: 2.8rem;
+}
+
+a {
+    color: #001f3f;
+    text-decoration: none;
+}
+
+/* header section */
+button {
+    padding: 2rem 6rem;
+    background: #b0e0e6;
+    border: none;
+    color: #001f3f;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+}
+
+button:hover {
+    background: #87ceeb;
+}
+
+/* nav section with hero */
+.main-head {
+    background: #b0e0e6;
+    color: #001f3f;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+nav {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 10vh;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1 1 40rem;
+    list-style: none;
+}
+
+#logo {
+    flex: 2 1 40rem;
+    font-family: "pattaya", sans-serif;
+    font-weight: 400;
+    color: #001f3f;
+}
+
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(rgba(208, 232, 242, 0.9), rgba(208, 232, 242, 0.7)),
+    url("../img/landing-page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

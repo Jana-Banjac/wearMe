@@ -1,0 +1,38 @@
+{
+<<<<<<< HEAD
+  "short_name": "React App",
+  "name": "Create React App Sample",
+=======
+  "short_name": "Wearify",
+  "name": "Wearify Online Clothing Store",
+>>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+<<<<<<< HEAD
+      "src": "logo192.png",
+=======
+      "src": "wearifylogo.png",
+>>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+<<<<<<< HEAD
+      "src": "logo512.png",
+=======
+      "src": "wearifylogo.png",
+>>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ded56575.css",
+    "main.js": "/static/js/main.e66dc08a.js",
+    "static/js/453.03346f77.chunk.js": "/static/js/453.03346f77.chunk.js",
+    "static/media/pants.jpg": "/static/media/pants.278aaf41a46b15db2b42.jpg",
+    "static/media/dress.jpg": "/static/media/dress.ebdaf08f4849ee44c350.jpg",
+    "static/media/buttons.jpg": "/static/media/buttons.a6b7b7ce21a68f902122.jpg",
+    "static/media/jeans.jpg": "/static/media/jeans.fda158c2aa77c74d32f2.jpg",
+    "static/media/sandals.jpg": "/static/media/sandals.febefb660eeb7ae7226c.jpg",
+    "static/media/shortsleeve.jpg": "/static/media/shortsleeve.c5efd261b82fd34a6046.jpg",
+    "static/media/longsleeve.jpg": "/static/media/longsleeve.23f2e2533b0d34c12efa.jpg",
+    "static/media/converse.jpg": "/static/media/converse.3485874b2f579bcc0051.jpg",
+    "static/media/shorts.jpg": "/static/media/shorts.b956cbd9742d9d1cac44.jpg",
+    "index.html": "/index.html",
+    "main.ded56575.css.map": "/static/css/main.ded56575.css.map",
+    "main.e66dc08a.js.map": "/static/js/main.e66dc08a.js.map",
+    "453.03346f77.chunk.js.map": "/static/js/453.03346f77.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ded56575.css",
+    "static/js/main.e66dc08a.js"
+  ]
+}

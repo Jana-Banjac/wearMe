@@ -1,0 +1,19 @@
+{
+  "name": "wearify-backend",
+  "version": "1.0.0",
+  "description": "Wearify MERN Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "Jana Banjac",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
