@@ -4,10 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
-<<<<<<< HEAD
     "@paypal/react-paypal-js": "^9.3.0",
-=======
->>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
     "@reduxjs/toolkit": "^2.12.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -15,18 +12,15 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.16.0",
     "bootstrap": "^5.3.8",
+    "dotenv": "^17.4.2",
     "react": "^19.2.4",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.4",
     "react-icons": "^5.6.0",
     "react-redux": "^9.3.0",
     "react-router-bootstrap": "^0.26.3",
-    "react-router-dom": "^7.14.1",
-<<<<<<< HEAD
-    "react-scripts": "5.0.1",
-=======
-    "react-scripts": "^5.0.1",
->>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
+    "react-router-dom": "^7.11.0",
+    "react-scripts": "^0.0.0",
     "react-toastify": "^11.1.0",
     "web-vitals": "^2.1.4"
   },

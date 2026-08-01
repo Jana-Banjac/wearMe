@@ -1,3 +1,5 @@
+// uvozimo dotenv paket koji nam omogucava da koristimo .env fajl za cuvanje konfiguracionih podataka
+require('dotenv').config()
 // uvozimo express
 const express = require("express");
 // inicijalizujemo aplikaciju
@@ -14,8 +16,20 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 // uvozimo corsopciones iz config foldera
 const corsOptions = require('./config/corsOptions')
+// uvozimo f-ju za povezivanje na mongo db bazu
+const connectDB = require('./config/dbConn')
+// povezujemo se na mongo db bazu
+const mongoose = require('mongoose')
+// slusamo na dogadjaj konekcije sa bazom
+const { logEvents } = require('./middleware/logger')
 // definisemo port na kom ce server raditi
 const PORT = process.env.PORT || 3500;
+
+// ispisujemo u konzolu vrednost node_env promenljive okruzenja
+console.log(process.env.NODE_ENV)
+
+// povezujemo se na mongo db bazu
+connectDB()
 
 // koristimo logger middleware za sve zahteve
 app.use(logger) 
@@ -51,5 +65,21 @@ app.all(/.*/, (req, res) => {
 // koristimo errorhandler middleware za obradu gresaka
 app.use(errorHandler)
 
-// pokrecemo server da slusa zahteve
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// kada se konekcija na MongoDB uspesno otvori
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB')
+
+    // pokreni server tek kada je baza povezana
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+})
+
+// hvatanje gresaka na konekciji nakon inicijalnog povezivanja 
+mongoose.connection.on('error', err => {
+    console.log(err)
+
+    // logovanje greske u fajl mongoErrLog.log preko logEvents funkcije
+    logEvents(
+        `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+        'mongoErrLog.log'
+    )
+})
