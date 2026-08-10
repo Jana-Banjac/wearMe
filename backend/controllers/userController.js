@@ -134,6 +134,68 @@ const logoutUser = async (req, res) => {
   res.json({ message: 'Logged out successfully' })
 }
 
+const getUserById = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select('-password')
+
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.username,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        roles: user.roles,
+        active: user.active,
+      })
+    } else {
+      res.status(404).json({ message: 'User not found' })
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
+
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+
+    if (user) {
+      await user.remove()
+      res.json({ message: 'User removed' })
+    } else {
+      res.status(404).json({ message: 'User not found' })
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
+
+const updateUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+
+    if (user) {
+      user.username = req.body.name || user.username
+      user.email = req.body.email || user.email
+      user.isAdmin = req.body.isAdmin !== undefined ? req.body.isAdmin : user.isAdmin
+
+      const updatedUser = await user.save()
+
+      res.json({
+        _id: updatedUser._id,
+        name: updatedUser.username,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+        roles: updatedUser.roles,
+        active: updatedUser.active,
+      })
+    } else {
+      res.status(404).json({ message: 'User not found' })
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
 module.exports = {
   authUser,
   registerUser,
@@ -141,4 +203,7 @@ module.exports = {
   getUserProfile,
   updateUserProfile,
   logoutUser,
+  getUserById,
+  deleteUser,
+  updateUser,
 }
