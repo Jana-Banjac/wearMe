@@ -36,10 +36,15 @@ const addOrderItems = async (req, res) => {
 
 const getOrderById = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id).populate('user', 'username email')
+    const order = await Order.findById(req.params.id).populate('user', 'username email').lean()
 
     if (order) {
       if (order.user._id.toString() === req.user._id.toString() || req.user.isAdmin) {
+        order.user = {
+          _id: order.user._id,
+          name: order.user.username,
+          email: order.user.email,
+        }
         res.json(order)
       } else {
         res.status(401).json({ message: 'Not authorized to view this order' })
@@ -93,8 +98,16 @@ const getMyOrders = async (req, res) => {
 
 const getOrders = async (req, res) => {
   try {
-    const orders = await Order.find({}).populate('user', 'username email')
-    res.json(orders)
+    const orders = await Order.find({}).populate('user', 'username email').lean()
+    const cleanedOrders = orders.map((order) => ({
+      ...order,
+      user: {
+        _id: order.user._id,
+        name: order.user.username,
+        email: order.user.email,
+      },
+    }))
+    res.json(cleanedOrders)
   } catch (error) {
     res.status(500).json({ message: error.message })
   }

@@ -51,6 +51,8 @@ app.use('/', express.static(path.join(__dirname, "public")));
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/products', require('./routes/productRoutes'))
 app.use('/api/orders', require('./routes/orderRoutes'))
+app.use('/api/upload', require('./routes/uploadRoutes'))
+app.use('/api/config', require('./routes/configRoutes'))
 
 // definisemo rute za nasu aplikaciju
 app.use('/', require("./routes/root"));
