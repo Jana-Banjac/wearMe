@@ -47,6 +47,11 @@ app.use(cookieParser())
 // express.static() je middleware funkcija
 app.use('/', express.static(path.join(__dirname, "public")));
 
+// definisemo API rute
+app.use('/api/users', require('./routes/userRoutes'))
+app.use('/api/products', require('./routes/productRoutes'))
+app.use('/api/orders', require('./routes/orderRoutes'))
+
 // definisemo rute za nasu aplikaciju
 app.use('/', require("./routes/root"));
 
