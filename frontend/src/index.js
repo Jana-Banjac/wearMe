@@ -8,7 +8,6 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
-<<<<<<< HEAD
 } from 'react-router-dom'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import HomeScreen from './screens/HomeScreen';
@@ -67,47 +66,4 @@ root.render(
 );
 
 
-=======
-} from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store';
-import './assets/styles/bootsrap-custom.css';
-import './assets/styles/index.css';
-
-
-import Home from './pages/home';
-import Login from './pages/login';
-import Register from './pages/register';
-import ProductDetails from './pages/product_details';
-import Cart from './pages/cart';
-import Profile from './pages/profile';
-import CreatePosts from './pages/create_posts';
-import Admin from './pages/admin';
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      {/* Glavne rute */}
-      <Route index={true} element={<Home />} />
-      <Route path="/product/:id" element={<ProductDetails />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/create-post" element={<CreatePosts />} />
-      <Route path="/admin" element={<Admin />} />
-    </Route>
-  )
-);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
-);
-
->>>>>>> 0032a5bf4b20ad41ea3c31cd86161952a7f4727b
 reportWebVitals();
