@@ -42,16 +42,16 @@ const Header = () => {
             <Navbar.Brand>
               <img
                 src={logo}
-                alt="FTN Skriptarnica"
+                alt="wearMe | Online Clothing Store"
                 width="30"
                 height="30"
                 className="d-inline-block align-top me-2"
               />
 
               <span className="fw-semibold">
-                Skriptarnica
+                wearMe
               </span>{" "}
-              Fakulteta tehničkih nauka u Novom Sadu
+              | Online Clothing Store
             </Navbar.Brand>
           </LinkContainer>
 
@@ -61,7 +61,7 @@ const Header = () => {
             <Nav className="ms-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <FaShoppingCart /> Korpa
+                  <FaShoppingCart /> Cart
 
                   {cartItems.length > 0 && (
                     <Badge
@@ -81,25 +81,25 @@ const Header = () => {
                {userInfo ? (
                      <NavDropdown title={userInfo.name} id="username">
                           <LinkContainer to="/profile">
-                              <NavDropdown.Item>Profil</NavDropdown.Item>
+                              <NavDropdown.Item>Profile</NavDropdown.Item>
                           </LinkContainer>
-                             <NavDropdown.Item onClick={logoutHandler}>Odjava</NavDropdown.Item>
+                             <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                              </NavDropdown>
                         ) : (
                           <LinkContainer to="/login">
-                              <Nav.Link><FaUser /> Prijava</Nav.Link>
+                              <Nav.Link><FaUser /> Login</Nav.Link>
                           </LinkContainer>)}
 
                            {userInfo && userInfo.isAdmin && (
                                 <NavDropdown title="Admin" id="adminmenu">
                                     <LinkContainer to="/admin/productlist">
-                                        <NavDropdown.Item>Proizvodi</NavDropdown.Item>
+                                        <NavDropdown.Item>Products</NavDropdown.Item>
                                     </LinkContainer>
                                     <LinkContainer to="/admin/orderlist">
-                                        <NavDropdown.Item>Porudžbine</NavDropdown.Item>
+                                        <NavDropdown.Item>Orders</NavDropdown.Item>
                                     </LinkContainer>
                                     <LinkContainer to="/admin/userlist">
-                                        <NavDropdown.Item>Korisnici</NavDropdown.Item>
+                                        <NavDropdown.Item>Users</NavDropdown.Item>
                                     </LinkContainer>
                                 </NavDropdown>
                             )}

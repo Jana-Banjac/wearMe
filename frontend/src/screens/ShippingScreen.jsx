@@ -28,44 +28,44 @@ const ShippingScreen = () => {
     return (
         <FormContainer>
             <CheckoutSteps step1 step2 />
-            <h1>Podaci o dostavi</h1>
+            <h1>Shipping Details</h1>
 
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='address' className='my-2'>
-                    <Form.Label>Adresa</Form.Label>
+                    <Form.Label>Address</Form.Label>
                     <Form.Control
                         type='text'
-                        placeholder='Unesite adresu'
+                        placeholder='Enter address'
                         value={address}
                         required
                         onChange={(e) => setAddress(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId='city' className='my-2'>
-                    <Form.Label>Grad</Form.Label>
+                    <Form.Label>City</Form.Label>
                     <Form.Control
                         type='text'
-                        placeholder='Unesite grad'
+                        placeholder='Enter city'
                         value={city}
                         required
                         onChange={(e) => setCity(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId='postalCode' className='my-2'>
-                    <Form.Label>Poštanski broj</Form.Label>
+                    <Form.Label>Postal Code</Form.Label>
                     <Form.Control
                         type='text'
-                        placeholder='Unesite poštanski broj'
+                        placeholder='Enter postal code'
                         value={postalCode}
                         required
                         onChange={(e) => setPostalCode(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId='country' className='my-2'>
-                    <Form.Label>Država</Form.Label>
+                    <Form.Label>Country</Form.Label>
                     <Form.Control
                         type='text'
-                        placeholder='Unesite državu'
+                        placeholder='Enter country'
                         value={country}
                         required
                         onChange={(e) => setCountry(e.target.value)}
@@ -73,7 +73,7 @@ const ShippingScreen = () => {
                 </Form.Group>
 
                 <Button type='submit' variant='primary' className='my-2'>
-                    Nastavi
+                    Continue
                 </Button>
             </Form>
         </FormContainer>

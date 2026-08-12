@@ -33,7 +33,7 @@ const ProductScreen = () => {
   return (
     <>
       <Link className='btn btn-outline-secondary mb-4' to='/'>
-        ← Nazad
+        ← Back
       </Link>
 
       {isLoading ? (
@@ -51,7 +51,7 @@ const ProductScreen = () => {
 
                 <Rating
                   value={product.rating}
-                  text={`${product.numReviews} recenzija`}
+                  text={`${product.numReviews} reviews`}
                 />
               </Col>
 
@@ -83,10 +83,10 @@ const ProductScreen = () => {
             <Col lg={4}>
               <Card className='border-0 shadow-sm'>
                 <Card.Body>
-                  <h4 className='mb-4'>Informacije o proizvodu</h4>
+                  <h4 className='mb-4'>Product Details</h4>
 
                   <div className='d-flex justify-content-between mb-3'>
-                    <span>Kategorija:</span>
+                    <span>Category:</span>
                     <span>{product.category}</span>
                   </div>
 
@@ -94,15 +94,15 @@ const ProductScreen = () => {
                     <span>Status:</span>
 
                     {product.countInStock > 0 ? (
-                      <Badge bg='success'>Dostupno</Badge>
+                      <Badge bg='success'>In Stock</Badge>
                     ) : (
-                      <Badge bg='danger'>Nije dostupno</Badge>
+                      <Badge bg='danger'>Out of Stock</Badge>
                     )}
                   </div>
 
                   {product.countInStock > 0 && (
                     <div className='d-flex justify-content-between align-items-center mb-4'>
-                      <span>Količina:</span>
+                      <span>Quantity:</span>
 
                       <Form.Control
                         as='select'
@@ -131,7 +131,7 @@ const ProductScreen = () => {
                       disabled={product.countInStock === 0}
                       onClick={addToCartHandler}
                     >
-                      Dodaj u korpu
+                      Add to Cart
                     </Button>
                   </div>
                 </Card.Body>
@@ -141,7 +141,7 @@ const ProductScreen = () => {
 
           <Card className='border-0 shadow-sm mt-4'>
             <Card.Body>
-              <h4 className='mb-3'>Opis proizvoda</h4>
+              <h4 className='mb-3'>Product Description</h4>
 
               <p className='text-muted mb-0'>
                 {product.description}

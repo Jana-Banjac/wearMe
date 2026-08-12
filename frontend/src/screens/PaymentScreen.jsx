@@ -33,12 +33,12 @@ const PaymentScreen = () => {
             <h1>Payment Method</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group>
-                    <Form.Label as='legend'>Odaberite način plaćanja</Form.Label>
+                    <Form.Label as='legend'>Choose Payment Method</Form.Label>
                     <Col>
                         <Form.Check
                             type='radio'
                             className='my-2'
-                            label='PayPal ili Kreditna kartica'
+                            label='PayPal or Credit Card'
                             id='PayPal'
                             name='paymentMethod'
                             value='PayPal'
@@ -48,7 +48,7 @@ const PaymentScreen = () => {
                     </Col>
                 </Form.Group>
                 <Button type='submit' variant='primary'>
-                    Nastavite
+                    Continue
                 </Button>
             </Form>
         </FormContainer>

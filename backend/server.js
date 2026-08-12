@@ -1,11 +1,9 @@
-// uvozimo dotenv paket koji nam omogucava da koristimo .env fajl za cuvanje konfiguracionih podataka
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.join(__dirname, '.env') })
 // uvozimo express
 const express = require("express");
 // inicijalizujemo aplikaciju
 const app = express();
-// uvozimo path modul koji nam omogucava da radimo sa putanjama fajlova
-const path = require("path");
 // uvozimo logger middleware iz lokalnog foldera middleware/logger
 const { logger } = require('./middleware/logger')
 // uvozimo errorhandler midlver iz lokalnog foldera middleware/errorhandler

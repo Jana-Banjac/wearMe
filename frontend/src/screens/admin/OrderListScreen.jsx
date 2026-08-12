@@ -16,7 +16,7 @@ const OrderListScreen = () => {
 
   return (
     <>
-      <h1>Porudžbine</h1>
+      <h1>Orders</h1>
 
       {isLoading ? (
         <Loader />
@@ -35,11 +35,11 @@ const OrderListScreen = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>KORISNIK</th>
-              <th>DATUM</th>
-              <th>UKUPNA CENA</th>
-              <th>STATUS PLAĆANJA</th>
-              <th>STATUS DOSTAVE</th>
+              <th>USER</th>
+              <th>DATE</th>
+              <th>TOTAL PRICE</th>
+              <th>PAYMENT STATUS</th>
+              <th>DELIVERY STATUS</th>
               <th></th>
             </tr>
           </thead>
@@ -87,7 +87,7 @@ const OrderListScreen = () => {
                   )}
                 </td>
 
-                {/* DETALJI */}
+                {/* DETAILS */}
                 <td>
                   <LinkContainer
                     to={`/order/${order._id}`}
@@ -96,7 +96,7 @@ const OrderListScreen = () => {
                       variant='light'
                       className='btn-sm'
                     >
-                      Detalji porudžbine
+                      Order Details
                     </Button>
                   </LinkContainer>
                 </td>

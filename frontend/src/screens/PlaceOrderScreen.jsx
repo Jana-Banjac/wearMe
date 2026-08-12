@@ -50,7 +50,7 @@ const PlaceOrderScreen = () => {
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h2>Podaci za dostavu</h2>
+                            <h2>Shipping Details</h2>
                             <p>
                                 <strong>Adresa:</strong>
                                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
@@ -60,12 +60,12 @@ const PlaceOrderScreen = () => {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Način plaćanja</h2>
+                            <h2>Payment Method</h2>
                             {cart.paymentMethod}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Stavke porudžbine</h2>
+                            <h2>Order Items</h2>
                             {cart.cartItems.length === 0 ? (
                                 <Message>Your cart is empty</Message>
                             ) : (
@@ -101,11 +101,11 @@ const PlaceOrderScreen = () => {
                     <Card>
                         <ListGroup variant='flush'>
                             <ListGroup.Item>
-                                <h2>Rezimiranje porudžbine</h2>
+                                <h2>Order Summary</h2>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Stavke</Col>
+                                    <Col>Items</Col>
                                     <Col>{cart.itemsPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
@@ -137,7 +137,7 @@ const PlaceOrderScreen = () => {
                                     disabled={cart.cartItems === 0}
                                     onClick={placeOrderHandler}
                                 >
-                                    Poručite sada
+                                    Place Order
                                 </Button>
                                 {isLoading && <Loader />}
                             </ListGroup.Item>

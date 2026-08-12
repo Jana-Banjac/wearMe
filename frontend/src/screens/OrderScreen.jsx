@@ -114,13 +114,13 @@ const OrderScreen = () => {
           refetch();
 
           toast.success(
-            'Porudžbina je uspešno plaćena'
+            'Order paid successfully'
           );
         } catch (err) {
           toast.error(
             err?.data?.message ||
               err.message ||
-              'Greška prilikom plaćanja porudžbine'
+              'Error processing order payment'
           );
         }
       });
@@ -140,7 +140,7 @@ const OrderScreen = () => {
     refetch();
 
     toast.success(
-      'Porudžbina je uspešno plaćena (test)'
+      'Order paid successfully (test)'
     );
   }
 
@@ -149,7 +149,7 @@ const OrderScreen = () => {
     toast.error(
       err?.data?.message ||
         err.message ||
-        'Greška prilikom plaćanja porudžbine'
+        'Error processing order payment'
     );
   }
 
@@ -179,13 +179,13 @@ const OrderScreen = () => {
       refetch();
 
       toast.success(
-        'Porudžbina je označena kao dostavljena'
+        'Order marked as delivered'
       );
     } catch (err) {
       toast.error(
         err?.data?.message ||
           err.message ||
-          'Greška prilikom označavanja porudžbine kao dostavljene'
+          'Error marking order as delivered'
       );
     }
   };
@@ -194,11 +194,11 @@ const OrderScreen = () => {
     <Loader />
   ) : isError ? (
     <Message variant='danger'>
-      Greška prilikom učitavanja porudžbine
+      Error loading order
     </Message>
   ) : (
     <>
-      <h1>Porudžbina {order._id}</h1>
+      <h1>Order {order._id}</h1>
 
       <Row>
 
@@ -208,7 +208,7 @@ const OrderScreen = () => {
 
             {/* ADRESA */}
             <ListGroup.Item>
-              <h2>Adresa za isporuku</h2>
+              <h2>Shipping Address</h2>
 
               <p>
                 <strong>Ime: </strong>
@@ -232,44 +232,44 @@ const OrderScreen = () => {
 
               {order.isDelivered ? (
                 <Message variant='success'>
-                  Dostavljeno datuma:{' '}
+                  Delivered on:{' '}
                   {order.deliveredAt}
                 </Message>
               ) : (
                 <Message variant='danger'>
-                  Nije dostavljeno
+                  Not delivered
                 </Message>
               )}
             </ListGroup.Item>
 
             {/* PLAĆANJE */}
             <ListGroup.Item>
-              <h2>Način plaćanja</h2>
+              <h2>Payment Method</h2>
 
               <p>
-                <strong>Metod: </strong>
+                <strong>Method: </strong>
                 {order.paymentMethod}
               </p>
 
               {order.isPaid ? (
                 <Message variant='success'>
-                  Plaćeno datuma:{' '}
+                  Paid on:{' '}
                   {order.paidAt}
                 </Message>
               ) : (
                 <Message variant='danger'>
-                  Nije plaćeno
+                  Not paid
                 </Message>
               )}
             </ListGroup.Item>
 
             {/* PROIZVODI */}
             <ListGroup.Item>
-              <h2>Proizvodi</h2>
+              <h2>Products</h2>
 
               {order.orderItems.length === 0 ? (
                 <Message>
-                  Porudžbina je prazna
+                  Order is empty
                 </Message>
               ) : (
                 <ListGroup variant='flush'>
@@ -322,33 +322,33 @@ const OrderScreen = () => {
             <ListGroup variant='flush'>
 
               <ListGroup.Item>
-                <h2>Ukupno</h2>
+                <h2>Total</h2>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Proizvodi</Col>
+                  <Col>Items</Col>
                   <Col>
                     {order.itemsPrice.toFixed(2)} RSD
                   </Col>
                 </Row>
 
                 <Row>
-                  <Col>Cena dostave</Col>
+                  <Col>Shipping</Col>
                   <Col>
                     {order.shippingPrice.toFixed(2)} RSD
                   </Col>
                 </Row>
 
                 <Row>
-                  <Col>PDV</Col>
+                  <Col>Tax</Col>
                   <Col>
                     {order.taxPrice.toFixed(2)} RSD
                   </Col>
                 </Row>
 
                 <Row>
-                  <Col>Ukupna cena</Col>
+                  <Col>Total Price</Col>
                   <Col>
                     {order.totalPrice.toFixed(2)} RSD
                   </Col>

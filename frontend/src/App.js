@@ -14,7 +14,7 @@ const App = () => {
     <Container>
       <Outlet/>
     <h1>
-      Dobro dosli u Skriptarnicu FTN!
+      Welcome to wearMe! Discover Your Style.
     </h1>
     </Container>
     </main>

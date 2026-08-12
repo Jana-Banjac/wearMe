@@ -74,7 +74,7 @@ const ProfileScreen = () => {
 
         dispatch(setCredentials({ ...res }));
 
-        toast.success('Profil je ažuriran');
+        toast.success('Profile updated successfully');
       } catch (err) {
         toast.error(
           err?.data?.message || err.error
@@ -86,9 +86,9 @@ const ProfileScreen = () => {
   return (
     <Row>
 
-      {/* LEVA STRANA - PROFIL */}
+      {/* LEFT SIDE - PROFILE */}
       <Col md={3}>
-        <h2>Profil korisnika</h2>
+        <h2>User Profile</h2>
 
         <Form onSubmit={submitHandler}>
 
@@ -97,11 +97,11 @@ const ProfileScreen = () => {
             className='my-2'
             controlId='name'
           >
-            <Form.Label>Ime</Form.Label>
+            <Form.Label>Name</Form.Label>
 
             <Form.Control
               type='text'
-              placeholder='Unesite ime'
+              placeholder='Enter name'
               value={name}
               onChange={(e) =>
                 setName(e.target.value)
@@ -114,11 +114,11 @@ const ProfileScreen = () => {
             className='my-2'
             controlId='email'
           >
-            <Form.Label>Mejl adresa</Form.Label>
+            <Form.Label>Email address</Form.Label>
 
             <Form.Control
               type='email'
-              placeholder='Unesite mejl adresu'
+              placeholder='Enter email address'
               value={email}
               onChange={(e) =>
                 setEmail(e.target.value)
@@ -131,11 +131,11 @@ const ProfileScreen = () => {
             className='my-2'
             controlId='password'
           >
-            <Form.Label>Lozinka</Form.Label>
+            <Form.Label>Password</Form.Label>
 
             <Form.Control
               type='password'
-              placeholder='Unesite lozinku'
+              placeholder='Enter password'
               value={password}
               onChange={(e) =>
                 setPassword(e.target.value)
@@ -149,12 +149,12 @@ const ProfileScreen = () => {
             controlId='confirmPassword'
           >
             <Form.Label>
-              Potvrdite lozinku
+              Confirm password
             </Form.Label>
 
             <Form.Control
               type='password'
-              placeholder='Potvrdite lozinku'
+              placeholder='Confirm password'
               value={confirmPassword}
               onChange={(e) =>
                 setConfirmPassword(
@@ -173,15 +173,15 @@ const ProfileScreen = () => {
             variant='primary'
             className='mt-2'
           >
-            Ažurirajte profil
+            Update Profile
           </Button>
 
         </Form>
       </Col>
 
-      {/* DESNA STRANA - PORUDŽBINE */}
+      {/* RIGHT SIDE - ORDERS */}
       <Col md={9}>
-        <h2>Moje porudžbine</h2>
+        <h2>My Orders</h2>
 
         {isLoading ? (
           <Loader />
@@ -199,10 +199,10 @@ const ProfileScreen = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Datum porudžbine</th>
-                <th>Ukupna cena</th>
-                <th>Status plaćanja</th>
-                <th>Status dostave</th>
+                <th>Order Date</th>
+                <th>Total Price</th>
+                <th>Payment Status</th>
+                <th>Delivery Status</th>
                 <th></th>
               </tr>
             </thead>

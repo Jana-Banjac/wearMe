@@ -46,14 +46,14 @@ const ProductListScreen = () => {
   const deleteHandler = async (id) => {
     if (
       window.confirm(
-        'Da li ste sigurni da želite da obrišete ovaj proizvod?'
+        'Are you sure you want to delete this product?'
       )
     ) {
       try {
         await deleteProduct(id).unwrap();
 
         toast.success(
-          'Proizvod uspešno obrisan'
+          'Product deleted successfully'
         );
 
         refetch();
@@ -90,7 +90,7 @@ const ProductListScreen = () => {
       <Row className='align-items-center'>
 
         <Col>
-          <h1>Proizvodi</h1>
+          <h1>Products</h1>
         </Col>
 
         <Col className='text-end'>
@@ -98,7 +98,7 @@ const ProductListScreen = () => {
             className='btn-sm m-3'
             onClick={createProductHandler}
           >
-            <FaPlus /> Kreirajte Novi Proizvod
+            <FaPlus /> Create New Product
           </Button>
         </Col>
 
@@ -127,9 +127,9 @@ const ProductListScreen = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>NAZIV</th>
-                <th>CENA</th>
-                <th>KATEGORIJA</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>CATEGORY</th>
                 <th></th>
               </tr>
             </thead>

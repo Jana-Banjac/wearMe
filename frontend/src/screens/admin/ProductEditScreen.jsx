@@ -111,7 +111,7 @@ const ProductEditScreen = () => {
       setImage(res.image);
 
       toast.success(
-        'Slika uspešno otpremljena'
+        'Image uploaded successfully'
       );
     } catch (err) {
       toast.error(
@@ -127,11 +127,11 @@ const ProductEditScreen = () => {
         to='/admin/productlist'
         className='btn btn-light my-3'
       >
-        Nazad
+        Back
       </Link>
 
       <FormContainer>
-        <h1>Izmena proizvoda</h1>
+        <h1>Edit Product</h1>
 
         {loadingUpdate && <Loader />}
 
@@ -146,10 +146,10 @@ const ProductEditScreen = () => {
 
             {/* NAME */}
             <Form.Group controlId='name'>
-              <Form.Label>Naziv</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Upišite naziv proizvoda'
+                placeholder='Enter product name'
                 value={name}
                 onChange={(e) =>
                   setName(e.target.value)
@@ -159,10 +159,10 @@ const ProductEditScreen = () => {
 
             {/* PRICE */}
             <Form.Group controlId='price'>
-              <Form.Label>Cena</Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control
                 type='number'
-                placeholder='Upišite cenu proizvoda'
+                placeholder='Enter product price'
                 value={price}
                 onChange={(e) =>
                   setPrice(e.target.value)
@@ -175,11 +175,11 @@ const ProductEditScreen = () => {
               controlId='image'
               className='my-2'
             >
-              <Form.Label>Slika</Form.Label>
+              <Form.Label>Image</Form.Label>
 
               <Form.Control
                 type='text'
-                placeholder='URL slike proizvoda'
+                placeholder='Product image URL'
                 value={image}
                 onChange={(e) =>
                   setImage(e.target.value)
@@ -195,12 +195,12 @@ const ProductEditScreen = () => {
             {/* COUNT IN STOCK */}
             <Form.Group controlId='countInStock'>
               <Form.Label>
-                Dostupna količina
+                Stock Quantity
               </Form.Label>
 
               <Form.Control
                 type='number'
-                placeholder='Upišite dostupnu količinu'
+                placeholder='Enter stock quantity'
                 value={countInStock}
                 onChange={(e) =>
                   setCountInStock(e.target.value)
@@ -210,11 +210,11 @@ const ProductEditScreen = () => {
 
             {/* CATEGORY */}
             <Form.Group controlId='category'>
-              <Form.Label>Kategorija</Form.Label>
+              <Form.Label>Category</Form.Label>
 
               <Form.Control
                 type='text'
-                placeholder='Upišite kategoriju'
+                placeholder='Enter category'
                 value={category}
                 onChange={(e) =>
                   setCategory(e.target.value)
@@ -224,11 +224,11 @@ const ProductEditScreen = () => {
 
             {/* DESCRIPTION */}
             <Form.Group controlId='description'>
-              <Form.Label>Opis</Form.Label>
+              <Form.Label>Description</Form.Label>
 
               <Form.Control
                 type='text'
-                placeholder='Upišite opis proizvoda'
+                placeholder='Enter product description'
                 value={description}
                 onChange={(e) =>
                   setDescription(e.target.value)
@@ -242,7 +242,7 @@ const ProductEditScreen = () => {
               variant='primary'
               style={{ marginTop: '1rem' }}
             >
-              Ažuriraj
+              Update
             </Button>
 
           </Form>
