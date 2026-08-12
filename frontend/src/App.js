@@ -13,9 +13,6 @@ const App = () => {
     <main className='py-3'>
     <Container>
       <Outlet/>
-    <h1>
-      Welcome to wearMe! Discover Your Style.
-    </h1>
     </Container>
     </main>
     <Footer/>

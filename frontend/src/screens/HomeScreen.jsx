@@ -16,13 +16,19 @@ return (
         ) : error ? (
         <Message variant="danger">{error?.data?.message || error.error}</Message>
         ) : (<><h1>New Products</h1>
+    {products.length === 0 ? (
+      <Message>
+        There are no products available yet.
+      </Message>
+    ) : (
     <Row>
         {products.map((product) => (
         <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
         <Product product={product} />
         </Col>
         ))}
-    </Row></>
+    </Row>
+    )}</>
 )}
 </>
 )}

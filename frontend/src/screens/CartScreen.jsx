@@ -25,8 +25,8 @@ const CartScreen = () => {
   };
 
   return (
-    <Row>
-      <Col md={8}>
+    <Row className='gy-4'>
+      <Col xs={12} lg={8}>
         <h1 style={{ marginBottom: '20px' }}>Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
@@ -36,15 +36,15 @@ const CartScreen = () => {
           <ListGroup variant="flush">
             {cartItems.map((item) => (
               <ListGroup.Item key={item._id}>
-                <Row>
-                  <Col md={2}>
-                    <Image src={item.image} alt={item.name} fluid rounded />
+                <Row className='align-items-center gy-3 cart-item'>
+                  <Col xs={4} sm={3} md={2}>
+                    <Image src={item.image} alt={item.name} fluid rounded className='cart-item-image' />
                   </Col>
-                  <Col md={3}>
+                  <Col xs={8} sm={5} md={3}>
                     <Link to={`/product/${item._id}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>{item.price.toFixed(2)} RSD</Col>
-                  <Col md={2}>
+                  <Col xs={4} sm={2} md={2} className='fw-semibold'>{item.price.toFixed(2)} RSD</Col>
+                  <Col xs={4} sm={1} md={2}>
                     <Form.Control
                       as="select"
                       value={item.qty}
@@ -57,7 +57,7 @@ const CartScreen = () => {
                       ))}
                     </Form.Control>
                   </Col>
-                  <Col md={2}>
+                  <Col xs={4} sm={1} md={2} className='text-end'>
                     <Button
                       variant="light"
                       onClick={() => removeFromCartHandler(item._id)}
@@ -72,7 +72,7 @@ const CartScreen = () => {
         )}
       </Col>
 
-      <Col md={4}>
+      <Col xs={12} lg={4}>
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item>
@@ -87,7 +87,7 @@ const CartScreen = () => {
             <ListGroup.Item>
               <Button
                 type="button"
-                className="btn-block"
+                className="w-100"
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >

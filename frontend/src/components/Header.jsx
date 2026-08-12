@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <header>
       <Navbar
-        bg="primary"
+        className="wearme-header"
         variant="dark"
         expand="md"
         collapseOnSelect
@@ -60,7 +60,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <LinkContainer to="/cart">
-                <Nav.Link>
+                <Nav.Link className="wearme-nav-action">
                   <FaShoppingCart /> Cart
 
                   {cartItems.length > 0 && (
@@ -79,15 +79,15 @@ const Header = () => {
               </LinkContainer>
 
                {userInfo ? (
-                     <NavDropdown title={userInfo.name} id="username">
-                          <LinkContainer to="/profile">
-                              <NavDropdown.Item>Profile</NavDropdown.Item>
-                          </LinkContainer>
-                             <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
-                             </NavDropdown>
-                        ) : (
+                    <>
+                      <LinkContainer to="/profile">
+                        <Nav.Link className="wearme-nav-action"><FaUser /> {userInfo.name || 'Profile'}</Nav.Link>
+                      </LinkContainer>
+                      <Nav.Link className="wearme-nav-action" onClick={logoutHandler}>Logout</Nav.Link>
+                    </>
+                  ) : (
                           <LinkContainer to="/login">
-                              <Nav.Link><FaUser /> Login</Nav.Link>
+                              <Nav.Link className="wearme-nav-action"><FaUser /> Login</Nav.Link>
                           </LinkContainer>)}
 
                            {userInfo && userInfo.isAdmin && (

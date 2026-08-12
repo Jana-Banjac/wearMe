@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# wearMe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MERN aplikacija za online prodavnicu odeće. Sadrži katalog proizvoda, korpu,
+registraciju i prijavu korisnika, poručivanje, PayPal plaćanje i administratorski
+panel za proizvode i porudžbine.
 
-## Available Scripts
+## Preduslovi
 
-In the project directory, you can run:
+- Node.js 20 ili noviji
+- MongoDB Atlas nalog ili lokalna MongoDB instanca
 
-### `npm start`
+## Konfiguracija
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+U fajlu `backend/.env` postavi sledeće vrednosti. Fajl je ignorisan u Gitu i ne
+treba ga deliti niti slati u repozitorijum.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```env
+NODE_ENV=development
+PORT=5000
+DATABASE_URI=mongodb+srv://...
+JWT_SECRET=duga-nasumicna-tajna
+PAYPAL_CLIENT_ID=paypal-client-id
+```
 
-### `npm test`
+Port `5000` je namerno isti kao `proxy` vrednost u `frontend/package.json`, pa
+frontend razvojni server prosleđuje API zahteve backendu.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pokretanje
 
-### `npm run build`
+```bash
+npm install
+npm install --prefix backend
+npm install --prefix frontend
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aplikacija je zatim dostupna na `http://localhost:3000`, a API na
+`http://localhost:5000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Osnovna provera
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Otvori početnu stranu i proveri učitavanje proizvoda.
+2. Registruj korisnika, prijavi se i dodaj proizvod u korpu.
+3. Završi adresu dostave, izbor plaćanja i kreiranje porudžbine.
+4. Kao administrator proveri dodavanje, izmenu i brisanje proizvoda, kao i listu porudžbina.
 
-### `npm run eject`
+## Produkcioni build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build --prefix frontend
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Pre objave obavezno proveri ceo tok kupovine sa test PayPal nalogom i koristi
+produkcione vrednosti za bazu, JWT tajnu i PayPal Client ID.
