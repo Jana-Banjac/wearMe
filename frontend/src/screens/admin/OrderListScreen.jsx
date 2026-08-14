@@ -27,10 +27,9 @@ const OrderListScreen = () => {
       ) : (
         <Table
           striped
-          bordered
           hover
           responsive
-          className='table-sm'
+          className='table-sm wearme-admin-table'
         >
           <thead>
             <tr>

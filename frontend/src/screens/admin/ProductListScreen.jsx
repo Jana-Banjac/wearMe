@@ -86,7 +86,6 @@ const ProductListScreen = () => {
 
   return (
     <>
-      {/* HEADER */}
       <Row className='align-items-center'>
 
         <Col>
@@ -104,11 +103,9 @@ const ProductListScreen = () => {
 
       </Row>
 
-      {/* LOADERS */}
       {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
 
-      {/* CONTENT */}
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -119,10 +116,9 @@ const ProductListScreen = () => {
         <>
           <Table
             striped
-            bordered
             hover
             responsive
-            className='table-sm'
+            className='table-sm wearme-admin-table'
           >
             <thead>
               <tr>
@@ -146,10 +142,8 @@ const ProductListScreen = () => {
 
                   <td>{product.category}</td>
 
-                  {/* ACTIONS */}
                   <td>
 
-                    {/* EDIT */}
                     <LinkContainer
                       to={`/admin/product/${product._id}/edit`}
                     >
@@ -161,7 +155,6 @@ const ProductListScreen = () => {
                       </Button>
                     </LinkContainer>
 
-                    {/* DELETE */}
                     <Button
                       variant='danger'
                       className='btn-sm'
@@ -178,7 +171,6 @@ const ProductListScreen = () => {
             </tbody>
           </Table>
 
-          {/* PAGINATION PLACEHOLDER */}
         </>
       )}
     </>

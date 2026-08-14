@@ -27,7 +27,7 @@ const CartScreen = () => {
   return (
     <Row className='gy-4'>
       <Col xs={12} lg={8}>
-        <h1 style={{ marginBottom: '20px' }}>Cart</h1>
+        <h1 style={{ marginBottom: '20px' }}>cart</h1>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to="/">Go back</Link>

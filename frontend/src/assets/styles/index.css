@@ -176,3 +176,53 @@ table th {
   border-color: #6e85a3 !important;
   color: var(--wearme-light-blue) !important;
 }
+
+.wearme-header .wearme-admin-dropdown .dropdown-toggle {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--wearme-navy) !important;
+  font-family: var(--bs-font-sans-serif);
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.wearme-header .wearme-admin-dropdown .dropdown-toggle:hover,
+.wearme-header .wearme-admin-dropdown .dropdown-toggle:focus {
+  background-color: transparent;
+  color: var(--wearme-navy-hover) !important;
+}
+
+.wearme-admin-table {
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--bs-font-sans-serif);
+  text-transform: lowercase;
+}
+
+.wearme-admin-table thead th {
+  background-color: var(--wearme-navy) !important;
+  color: var(--wearme-light-blue) !important;
+  border: 1px solid var(--wearme-light-blue);
+  box-shadow: inset 0 0 0 9999px var(--wearme-navy) !important;
+}
+
+.wearme-admin-table tbody tr > * {
+  background-color: #fdf6e3 !important;
+  color: var(--wearme-navy) !important;
+  border: none;
+  box-shadow: none !important;
+}
+
+.wearme-admin-table tbody tr:nth-of-type(odd) > * {
+  background-color: #faf0c8 !important;
+}
+
+.wearme-admin-table.table-hover tbody tr:hover > * {
+  background-color: #f5e6af !important;
+  color: var(--wearme-navy) !important;
+}

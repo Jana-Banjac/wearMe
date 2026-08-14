@@ -61,7 +61,7 @@ const Header = () => {
             <Nav className="ms-auto">
               <LinkContainer to="/cart">
                 <Nav.Link className="wearme-nav-action">
-                  <FaShoppingCart /> Cart
+                  <FaShoppingCart /> cart
 
                   {cartItems.length > 0 && (
                     <Badge
@@ -83,15 +83,15 @@ const Header = () => {
                       <LinkContainer to="/profile">
                         <Nav.Link className="wearme-nav-action"><FaUser /> {userInfo.name || 'Profile'}</Nav.Link>
                       </LinkContainer>
-                      <Nav.Link className="wearme-nav-action" onClick={logoutHandler}>Logout</Nav.Link>
+                      <Nav.Link className="wearme-nav-action" onClick={logoutHandler}>logout</Nav.Link>
                     </>
                   ) : (
                           <LinkContainer to="/login">
-                              <Nav.Link className="wearme-nav-action"><FaUser /> Login</Nav.Link>
+                              <Nav.Link className="wearme-nav-action"><FaUser /> login</Nav.Link>
                           </LinkContainer>)}
 
                            {userInfo && userInfo.isAdmin && (
-                                <NavDropdown title="Admin" id="adminmenu">
+                                <NavDropdown title="Admin" id="adminmenu" className="wearme-nav-action wearme-admin-dropdown">
                                     <LinkContainer to="/admin/productlist">
                                         <NavDropdown.Item>Products</NavDropdown.Item>
                                     </LinkContainer>
