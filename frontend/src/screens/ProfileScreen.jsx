@@ -23,7 +23,6 @@ import { useGetMyOrdersQuery } from '../slices/orderApiSlice';
 import { setCredentials } from '../slices/authSlice';
 
 const ProfileScreen = () => {
-  // STATE
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -32,14 +31,12 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] =
     useState('');
 
-  // REDUX
   const dispatch = useDispatch();
 
   const { userInfo } = useSelector(
     (state) => state.auth
   );
 
-  // API
   const {
     data: orders,
     isLoading,
@@ -51,18 +48,16 @@ const ProfileScreen = () => {
     { isLoading: loadingUpdateProfile },
   ] = useProfileMutation();
 
-  // LOAD USER DATA
   useEffect(() => {
     setName(userInfo.name);
     setEmail(userInfo.email);
   }, [userInfo.name, userInfo.email]);
 
-  // SUBMIT FORM
   const submitHandler = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error('Lozinke se ne poklapaju');
+      toast.error('Passwords do not match.');
     } else {
       try {
         const res = await updateProfile({
@@ -86,13 +81,11 @@ const ProfileScreen = () => {
   return (
     <Row>
 
-      {/* LEFT SIDE - PROFILE */}
       <Col md={3}>
         <h2>User Profile</h2>
 
         <Form onSubmit={submitHandler}>
 
-          {/* IME */}
           <Form.Group
             className='my-2'
             controlId='name'
@@ -109,7 +102,6 @@ const ProfileScreen = () => {
             />
           </Form.Group>
 
-          {/* EMAIL */}
           <Form.Group
             className='my-2'
             controlId='email'
@@ -126,7 +118,6 @@ const ProfileScreen = () => {
             />
           </Form.Group>
 
-          {/* PASSWORD */}
           <Form.Group
             className='my-2'
             controlId='password'
@@ -143,7 +134,6 @@ const ProfileScreen = () => {
             />
           </Form.Group>
 
-          {/* CONFIRM PASSWORD */}
           <Form.Group
             className='my-2'
             controlId='confirmPassword'
@@ -164,10 +154,8 @@ const ProfileScreen = () => {
             />
           </Form.Group>
 
-          {/* LOADER */}
           {loadingUpdateProfile && <Loader />}
 
-          {/* BUTTON */}
           <Button
             type='submit'
             variant='primary'
@@ -179,7 +167,6 @@ const ProfileScreen = () => {
         </Form>
       </Col>
 
-      {/* RIGHT SIDE - ORDERS */}
       <Col md={9}>
         <h2>My Orders</h2>
 
@@ -224,7 +211,6 @@ const ProfileScreen = () => {
                     {order.totalPrice} RSD
                   </td>
 
-                  {/* PLAĆANJE */}
                   <td>
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
@@ -235,7 +221,6 @@ const ProfileScreen = () => {
                     )}
                   </td>
 
-                  {/* DOSTAVA */}
                   <td>
                     {order.isDelivered ? (
                       order.deliveredAt.substring(
@@ -249,7 +234,6 @@ const ProfileScreen = () => {
                     )}
                   </td>
 
-                  {/* DETALJI */}
                   <td>
                     <LinkContainer
                       to={`/order/${order._id}`}
@@ -258,7 +242,7 @@ const ProfileScreen = () => {
                         variant='light'
                         className='btn-sm'
                       >
-                        Detalji
+                        Details
                       </Button>
                     </LinkContainer>
                   </td>

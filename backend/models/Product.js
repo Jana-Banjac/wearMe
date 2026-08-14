@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-// definisemo shemu za recenziju proizvoda
 const reviewSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +20,6 @@ const reviewSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-// definisemo shemu za proizvod
 const productSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,

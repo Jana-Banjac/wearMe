@@ -16,7 +16,7 @@ const App = () => {
     </Container>
     </main>
     <Footer/>
-    <ToastContainer />
+    <ToastContainer className='wearme-toast-container' />
     </>
   )
 }

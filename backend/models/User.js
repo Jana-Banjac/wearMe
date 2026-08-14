@@ -1,8 +1,6 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
 
-// definisemo shemu za korisnika
-// za gosta nema potrebe da se cuva u bazi, jer je to anonimni korisnik
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -31,12 +29,10 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-// metoda za proveru lozinke prilikom logovanja
 userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)
 }
 
-// hash-ovanje lozinke pre snimanja u bazu
 userSchema.pre('save', async function () {
     if (!this.isModified('password')) {
         return

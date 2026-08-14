@@ -22,7 +22,6 @@ import {
 const ProductEditScreen = () => {
   const { id: productId } = useParams();
 
-  // STATE
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState('');
@@ -32,7 +31,6 @@ const ProductEditScreen = () => {
   const [description, setDescription] =
     useState('');
 
-  // API
   const {
     data: product,
     isLoading,
@@ -52,7 +50,6 @@ const ProductEditScreen = () => {
 
   const navigate = useNavigate();
 
-  // LOAD PRODUCT DATA
   useEffect(() => {
     if (product) {
       setName(product.name);
@@ -64,7 +61,6 @@ const ProductEditScreen = () => {
     }
   }, [product]);
 
-  // SUBMIT FORM
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -80,7 +76,7 @@ const ProductEditScreen = () => {
       }).unwrap();
 
       toast.success(
-        'Proizvod ažuriran uspešno'
+        'Product updated successfully'
       );
 
       refetch();
@@ -93,7 +89,6 @@ const ProductEditScreen = () => {
     }
   };
 
-  // IMAGE UPLOAD
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
 
@@ -122,7 +117,6 @@ const ProductEditScreen = () => {
 
   return (
     <>
-      {/* BACK BUTTON */}
       <Link
         to='/admin/productlist'
         className='btn btn-light my-3'
@@ -144,7 +138,6 @@ const ProductEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
 
-            {/* NAME */}
             <Form.Group controlId='name'>
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -157,7 +150,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* PRICE */}
             <Form.Group controlId='price'>
               <Form.Label>Price</Form.Label>
               <Form.Control
@@ -170,7 +162,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* IMAGE */}
             <Form.Group
               controlId='image'
               className='my-2'
@@ -192,7 +183,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* COUNT IN STOCK */}
             <Form.Group controlId='countInStock'>
               <Form.Label>
                 Stock Quantity
@@ -208,7 +198,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* CATEGORY */}
             <Form.Group controlId='category'>
               <Form.Label>Category</Form.Label>
 
@@ -222,7 +211,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* DESCRIPTION */}
             <Form.Group controlId='description'>
               <Form.Label>Description</Form.Label>
 
@@ -236,7 +224,6 @@ const ProductEditScreen = () => {
               />
             </Form.Group>
 
-            {/* SUBMIT */}
             <Button
               type='submit'
               variant='primary'

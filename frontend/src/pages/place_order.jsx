@@ -88,7 +88,7 @@ const PlaceOrder = () => {
                                                     </Link>
                                                 </Col>
                                                 <Col md={4}>
-                                                    {item.qty} x ${item.price.toFixed(2)} = ${(item.qty * item.price).toFixed(2)}
+                                                    {item.qty} x {item.price} RSD = {item.qty * item.price} RSD
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>
@@ -107,25 +107,25 @@ const PlaceOrder = () => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Items</Col>
-                                    <Col>${Number(cart.itemsPrice).toFixed(2)}</Col>
+                                    <Col>{cart.itemsPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Shipping</Col>
-                                    <Col>${Number(cart.shippingPrice).toFixed(2)}</Col>
+                                    <Col>{cart.shippingPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Tax</Col>
-                                    <Col>${Number(cart.taxPrice).toFixed(2)}</Col>
+                                    <Col>{cart.taxPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Total</Col>
-                                    <Col>${Number(cart.totalPrice).toFixed(2)}</Col>
+                                    <Col>{cart.totalPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
                             {error && (

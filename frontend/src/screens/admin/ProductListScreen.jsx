@@ -42,7 +42,6 @@ const ProductListScreen = () => {
     { isLoading: loadingDelete },
   ] = useDeleteProductMutation();
 
-  // DELETE PRODUCT
   const deleteHandler = async (id) => {
     if (
       window.confirm(
@@ -65,11 +64,10 @@ const ProductListScreen = () => {
     }
   };
 
-  // CREATE PRODUCT
   const createProductHandler = async () => {
     if (
       window.confirm(
-        'Da li ste sigurni da želite da kreirate novi proizvod?'
+        'Are you sure you want to create a new product?'
       )
     ) {
       try {

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-// definisemo shemu za narudzbinu
 const orderSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -12,7 +11,6 @@ const orderSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        // definisemo kolicinu proizvoda u narudzbini
         qty: {
             type: Number,
             required: true

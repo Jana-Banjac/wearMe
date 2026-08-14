@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Form, Row, Col, Image, Card, Button, Badge } from 'react-bootstrap';
-import { useGetProductDetailsQuery } from '../slices/productSlice'; // Promenjeno sa productApiSlice na productSlice
+import { useGetProductDetailsQuery } from '../slices/productSlice';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';

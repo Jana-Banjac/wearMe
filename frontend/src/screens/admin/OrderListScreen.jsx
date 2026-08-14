@@ -61,7 +61,6 @@ const OrderListScreen = () => {
                   {order.totalPrice} RSD
                 </td>
 
-                {/* STATUS PLAĆANJA */}
                 <td>
                   {order.isPaid ? (
                     order.paidAt.substring(0, 10)
@@ -72,7 +71,6 @@ const OrderListScreen = () => {
                   )}
                 </td>
 
-                {/* STATUS DOSTAVE */}
                 <td>
                   {order.isDelivered ? (
                     order.deliveredAt.substring(
@@ -86,7 +84,6 @@ const OrderListScreen = () => {
                   )}
                 </td>
 
-                {/* DETAILS */}
                 <td>
                   <LinkContainer
                     to={`/order/${order._id}`}

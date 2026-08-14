@@ -6,7 +6,6 @@ import Message from '../components/Message'
 import products from '../product_list.js'
 
 const Home = () => {
-  // simuliramo stanje ucitavanja i greske (zbog testiranja)
   const isLoading = false;
   const error = null;
 

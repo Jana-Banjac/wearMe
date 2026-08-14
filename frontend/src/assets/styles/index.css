@@ -132,10 +132,10 @@ main .btn:not(.btn-close):focus {
 }
 
 .product-title {
-  height: 2.5em; /* Set a fixed height */
-  overflow: hidden; /* Hide overflow content */
-  text-overflow: ellipsis; /* Add ellipsis for long text */
-  white-space: nowrap; /* Prevent wrapping */
+  height: 2.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   font-size: 1.1rem;
   color: #222;
@@ -225,4 +225,24 @@ table th {
 .wearme-admin-table.table-hover tbody tr:hover > * {
   background-color: #f5e6af !important;
   color: var(--wearme-navy) !important;
+}
+
+.wearme-toast-container .Toastify__toast {
+  background: #fff4b8;
+  color: var(--wearme-navy);
+  border: 1px solid #e2ca55;
+  box-shadow: 0 0.5rem 1rem rgba(16, 42, 86, 0.2);
+}
+
+.wearme-toast-container .Toastify__toast-body,
+.wearme-toast-container .Toastify__close-button {
+  color: var(--wearme-navy);
+}
+
+.wearme-toast-container .Toastify__toast-icon svg {
+  fill: var(--wearme-navy);
+}
+
+.wearme-toast-container .Toastify__progress-bar {
+  background: var(--wearme-navy);
 }

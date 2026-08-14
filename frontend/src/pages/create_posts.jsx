@@ -16,7 +16,6 @@ const CreatePost = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         
-        // Ovde bi inače išao poziv ka mutaciji za kreiranje proizvoda/posta
         toast.success('Post created successfully!');
         navigate('/');
     };

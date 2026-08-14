@@ -59,7 +59,6 @@ const OrderScreen = () => {
     (state) => state.auth
   );
 
-  // LOAD PAYPAL SCRIPT
   useEffect(() => {
     if (
       !errorPayPal &&
@@ -100,7 +99,6 @@ const OrderScreen = () => {
     paypalDispatch,
   ]);
 
-  // PAYPAL APPROVE
   async function onApprove(data, actions) {
     return actions.order
       .capture()
@@ -126,7 +124,6 @@ const OrderScreen = () => {
       });
   }
 
-  // TEST PAYMENT
   async function onApproveTest() {
     await payOrder({
       orderId,
@@ -144,7 +141,6 @@ const OrderScreen = () => {
     );
   }
 
-  // PAYPAL ERROR
   function onError(err) {
     toast.error(
       err?.data?.message ||
@@ -153,7 +149,6 @@ const OrderScreen = () => {
     );
   }
 
-  // CREATE PAYPAL ORDER
   function createOrder(data, actions) {
     const totalInEur = (
       order.totalPrice / 117.2
@@ -172,7 +167,6 @@ const OrderScreen = () => {
       .then((orderID) => orderID);
   }
 
-  // DELIVER ORDER (ADMIN)
   const deliverOrderHandler = async () => {
     try {
       await deliverOrder(orderId).unwrap();
@@ -202,16 +196,14 @@ const OrderScreen = () => {
 
       <Row>
 
-        {/* LEVA STRANA */}
         <Col md={8}>
           <ListGroup variant='flush'>
 
-            {/* ADRESA */}
             <ListGroup.Item>
               <h2>Shipping Address</h2>
 
               <p>
-                <strong>Ime: </strong>
+                <strong>Name: </strong>
                 {order.user.name}
               </p>
 
@@ -223,7 +215,7 @@ const OrderScreen = () => {
               </p>
 
               <p>
-                <strong>Adresa: </strong>
+                <strong>Address: </strong>
                 {order.shippingAddress.address},{' '}
                 {order.shippingAddress.city}{' '}
                 {order.shippingAddress.postalCode},{' '}
@@ -242,7 +234,6 @@ const OrderScreen = () => {
               )}
             </ListGroup.Item>
 
-            {/* PLAĆANJE */}
             <ListGroup.Item>
               <h2>Payment Method</h2>
 
@@ -263,7 +254,6 @@ const OrderScreen = () => {
               )}
             </ListGroup.Item>
 
-            {/* PROIZVODI */}
             <ListGroup.Item>
               <h2>Products</h2>
 
@@ -316,7 +306,6 @@ const OrderScreen = () => {
           </ListGroup>
         </Col>
 
-        {/* DESNA STRANA */}
         <Col md={4}>
           <Card>
             <ListGroup variant='flush'>
@@ -355,7 +344,6 @@ const OrderScreen = () => {
                 </Row>
               </ListGroup.Item>
 
-              {/* PAYPAL */}
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
@@ -371,7 +359,7 @@ const OrderScreen = () => {
                           marginBottom: '10px',
                         }}
                       >
-                        Plati (test)
+                        Pay (test)
                       </Button>
 
                       <PayPalButtons
@@ -384,7 +372,6 @@ const OrderScreen = () => {
                 </ListGroup.Item>
               )}
 
-              {/* ADMIN - DOSTAVA */}
               {!order.isDelivered &&
                 userInfo &&
                 userInfo.isAdmin &&
@@ -396,7 +383,7 @@ const OrderScreen = () => {
                       className='btn btn-block'
                       onClick={deliverOrderHandler}
                     >
-                      Označi kao dostavljeno
+                      Mark as delivered
                     </Button>
                   </ListGroup.Item>
                 )}

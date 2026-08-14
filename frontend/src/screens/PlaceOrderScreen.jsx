@@ -8,6 +8,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import Loader from '../components/Loader';
 import { useCreateOrderMutation } from '../slices/orderApiSlice';
 import { clearCartItems } from '../slices/cartSlice';
+import getErrorMessage from '../utils/getErrorMessage';
 
 const PlaceOrderScreen = () => {
     const navigate = useNavigate();
@@ -28,7 +29,10 @@ const PlaceOrderScreen = () => {
     const placeOrderHandler = async () => {
         try {
             const res = await createOrder({
-                orderItems: cart.cartItems,
+                orderItems: cart.cartItems.map(({ _id, product, ...item }) => ({
+                    ...item,
+                    product: product || _id,
+                })),
                 shippingAddress: cart.shippingAddress,
                 paymentMethod: cart.paymentMethod,
                 itemsPrice: cart.itemsPrice,
@@ -39,7 +43,7 @@ const PlaceOrderScreen = () => {
             dispatch(clearCartItems());
             navigate(`/order/${res._id}`);
         } catch (err) {
-            toast.error(err);
+            toast.error(getErrorMessage(err));
         }
     };
 
@@ -52,7 +56,7 @@ const PlaceOrderScreen = () => {
                         <ListGroup.Item>
                             <h2>Shipping Details</h2>
                             <p>
-                                <strong>Adresa:</strong>
+                                <strong>Address:</strong>
                                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
                                 {cart.shippingAddress.postalCode},{' '}
                                 {cart.shippingAddress.country}
@@ -124,11 +128,15 @@ const PlaceOrderScreen = () => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Total</Col>
-                                    <Col>${cart.totalPrice}</Col>
+                                    <Col>{cart.totalPrice} RSD</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                {error && <Message variant='danger'>{error}</Message>}
+                                {error && (
+                                    <Message variant='danger'>
+                                        {getErrorMessage(error)}
+                                    </Message>
+                                )}
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Button

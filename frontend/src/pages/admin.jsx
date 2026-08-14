@@ -1,7 +1,6 @@
 import { Row, Col, Card, Table, Button } from 'react-bootstrap';
 
 const Admin = () => {
-    // Lažni podaci za prikaz na dashboard-u
     const mockProducts = [
         { _id: '1', name: 'Denim Shorts', price: 25.0, category: 'Shorts' },
         { _id: '2', name: 'Jeans', price: 35.0, category: 'Jeans' },
@@ -12,7 +11,6 @@ const Admin = () => {
         <>
             <h1 className='mb-4'>Admin Dashboard</h1>
 
-            {/* Statistika na vrhu */}
             <Row className='mb-4 gy-3'>
                 <Col md={4}>
                     <Card className='border-0 shadow-sm text-center p-3 bg-light'>
@@ -34,7 +32,6 @@ const Admin = () => {
                 </Col>
             </Row>
 
-            {/* Tabela proizvoda */}
             <Card className='border-0 shadow-sm p-4'>
                 <div className='d-flex justify-content-between align-items-center mb-3'>
                     <h2>Manage Products</h2>

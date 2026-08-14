@@ -27,7 +27,6 @@ const Profile = () => {
             return;
         }
 
-        // Simulacija uspešnog ažuriranja na frontendu
         const updatedUser = {
             ...userInfo,
             name,
