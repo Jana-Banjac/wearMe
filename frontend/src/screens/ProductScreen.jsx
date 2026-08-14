@@ -3,31 +3,52 @@ import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom' 
 import { Link } from 'react-router-dom'
 import { Form, Row, Col, Image, ListGroup, Card, Button, Badge } from 'react-bootstrap'
-import { useGetProductDetailsQuery } from '../slices/productApiSlice' 
+import { toast } from 'react-toastify'
+import { useCreateReviewMutation, useGetProductDetailsQuery } from '../slices/productApiSlice'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux' 
+import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../slices/cartSlice'
 
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
   const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState('');
+  const [comment, setComment] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { userInfo } = useSelector((state) => state.auth);
 
   const {
     data: product,
     isLoading,
     error,
+    refetch,
   } = useGetProductDetailsQuery(productId);
+
+  const [createReview, { isLoading: loadingReview }] = useCreateReviewMutation();
+  const reviews = product?.reviews ?? [];
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, product: product._id, qty }));
     navigate('/cart');
+  };
+
+  const submitReviewHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      await createReview({ productId, rating, comment }).unwrap();
+      refetch();
+      toast.success('Review submitted');
+      setRating('');
+      setComment('');
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   return (
@@ -146,6 +167,72 @@ const ProductScreen = () => {
               <p className='text-muted mb-0'>
                 {product.description}
               </p>
+            </Card.Body>
+          </Card>
+
+          <Card className='border-0 shadow-sm mt-4'>
+            <Card.Body>
+              <h4 className='mb-3'>Reviews</h4>
+
+              {reviews.length === 0 ? (
+                <Message>No reviews yet</Message>
+              ) : (
+                <ListGroup variant='flush' className='mb-4'>
+                  {reviews.map((review) => (
+                    <ListGroup.Item key={review._id}>
+                      <strong>{review.name}</strong>
+                      <Rating value={review.rating} />
+                      <p className='text-muted mb-2'>
+                        {new Date(review.createdAt).toLocaleDateString('en-US')}
+                      </p>
+                      <p className='mb-0'>{review.comment}</p>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              )}
+
+              {userInfo ? (
+                reviews.find((review) => review.user === userInfo._id) ? (
+                  <Message>You have already reviewed this product</Message>
+                ) : (
+                  <Form onSubmit={submitReviewHandler}>
+                    <Form.Group controlId='rating' className='mb-3'>
+                      <Form.Label>Rating</Form.Label>
+                      <Form.Select
+                        value={rating}
+                        required
+                        onChange={(e) => setRating(Number(e.target.value))}
+                      >
+                        <option value=''>Select a rating</option>
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <option key={value} value={value}>
+                            {value} - {['Poor', 'Fair', 'Good', 'Very good', 'Excellent'][value - 1]}
+                          </option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+
+                    <Form.Group controlId='comment' className='mb-3'>
+                      <Form.Label>Comment</Form.Label>
+                      <Form.Control
+                        as='textarea'
+                        rows={3}
+                        value={comment}
+                        required
+                        onChange={(e) => setComment(e.target.value)}
+                      />
+                    </Form.Group>
+
+                    <Button type='submit' disabled={loadingReview}>
+                      {loadingReview ? 'Submitting...' : 'Submit Review'}
+                    </Button>
+                  </Form>
+                )
+              ) : (
+                <Message>
+                  Please <Link to='/login'>sign in</Link> to write a review.
+                </Message>
+              )}
             </Card.Body>
           </Card>
         </>
