@@ -1,9 +1,8 @@
 :root {
-  --wearme-navy: #102a56;
-  --wearme-navy-hover: #0a1d3d;
-  --wearme-light-blue: #d9efff;
-  --wearme-light-blue-hover: #bee2fa;
-  --wearme-page-blue: #f1faff;
+  --wearme-burgundy: #850000;
+  --wearme-light-brown: #d3a36d;
+  --wearme-dark-brown: #3e2417;
+  --wearme-white: #ffffff;
 }
 
 html,
@@ -13,8 +12,10 @@ body,
 }
 
 body {
-  background-color: var(--wearme-page-blue);
-  color: var(--wearme-navy);
+  background:
+    linear-gradient(rgba(62, 36, 23, 0.32), rgba(62, 36, 23, 0.32)),
+    url('../leopard-background-2.jpeg') center / cover fixed;
+  color: var(--wearme-white);
 }
 
 #root {
@@ -30,38 +31,45 @@ main {
 
 .wearme-header,
 .wearme-footer {
-  background-color: var(--wearme-navy);
-  color: var(--wearme-light-blue);
+  background-color: var(--wearme-burgundy);
+  color: var(--wearme-white);
 }
 
 .wearme-header .navbar-brand,
 .wearme-header .navbar-brand:hover,
 .wearme-header .navbar-brand:focus {
-  color: var(--wearme-light-blue);
+  color: var(--wearme-white);
+}
+
+.wearme-logo {
+  width: 130px;
+  height: auto;
+  max-height: 42px;
+  object-fit: contain;
 }
 
 .wearme-header .nav-link:not(.wearme-nav-action),
 .wearme-header .dropdown-toggle {
-  color: var(--wearme-light-blue) !important;
+  color: var(--wearme-white) !important;
 }
 
 .wearme-nav-action {
   margin: 0.25rem;
   padding: 0.45rem 0.8rem !important;
   border-radius: 0.4rem;
-  background-color: var(--wearme-light-blue);
-  color: var(--wearme-navy) !important;
+  background-color: var(--wearme-light-brown);
+  color: var(--wearme-dark-brown) !important;
   font-weight: 600;
 }
 
 .wearme-nav-action:hover,
 .wearme-nav-action:focus {
-  background-color: var(--wearme-light-blue-hover);
-  color: var(--wearme-navy-hover) !important;
+  background-color: var(--wearme-white);
+  color: var(--wearme-dark-brown) !important;
 }
 
 .wearme-header .navbar-toggler {
-  border-color: var(--wearme-light-blue);
+  border-color: var(--wearme-white);
 }
 
 .wearme-footer {
@@ -79,21 +87,68 @@ h4,
 h5,
 h6,
 a {
-  color: var(--wearme-navy);
+  color: var(--wearme-white);
 }
 
 main .btn:not(.btn-close) {
-  background-color: var(--wearme-navy) !important;
-  border-color: var(--wearme-navy) !important;
-  color: var(--wearme-light-blue) !important;
+  background-color: var(--wearme-burgundy) !important;
+  border-color: var(--wearme-burgundy) !important;
+  color: var(--wearme-white) !important;
   font-weight: 600;
 }
 
 main .btn:not(.btn-close):hover,
 main .btn:not(.btn-close):focus {
-  background-color: var(--wearme-navy-hover) !important;
-  border-color: var(--wearme-navy-hover) !important;
-  color: #ffffff !important;
+  background-color: var(--wearme-dark-brown) !important;
+  border-color: var(--wearme-dark-brown) !important;
+  color: var(--wearme-white) !important;
+}
+
+main .card,
+main .list-group-item,
+main .table,
+main .form-control,
+main .form-select {
+  background-color: var(--wearme-white);
+  color: var(--wearme-dark-brown);
+}
+
+main .card h1,
+main .card h2,
+main .card h3,
+main .card h4,
+main .card h5,
+main .card h6,
+main .card a,
+main .list-group-item a,
+main .table a {
+  color: var(--wearme-dark-brown);
+}
+
+main .text-muted {
+  color: var(--wearme-dark-brown) !important;
+  opacity: 0.75;
+}
+
+main .alert {
+  background-color: var(--wearme-light-brown);
+  border-color: var(--wearme-light-brown);
+  color: var(--wearme-dark-brown);
+}
+
+main .card,
+main .alert,
+main .form-control,
+main .form-select,
+main .list-group,
+main .list-group-item,
+main .table,
+main .btn:not(.btn-close) {
+  border-radius: 0.75rem;
+}
+
+main .table {
+  overflow: hidden;
 }
 
 .cart-item-image {
@@ -122,7 +177,7 @@ main .btn:not(.btn-close):focus {
 }
 
 .rating svg {
-  color: #E6CD69;
+  color: var(--wearme-light-brown);
 }
 
 .rating-text {
@@ -138,7 +193,7 @@ main .btn:not(.btn-close):focus {
   white-space: nowrap;
 
   font-size: 1.1rem;
-  color: #222;
+  color: var(--wearme-dark-brown);
   text-decoration: none;
 }
 
@@ -172,9 +227,10 @@ table th {
 }
 
 .add-to-cart-btn:disabled {
-  background-color: #6e85a3 !important;
-  border-color: #6e85a3 !important;
-  color: var(--wearme-light-blue) !important;
+  background-color: var(--wearme-burgundy) !important;
+  border-color: var(--wearme-burgundy) !important;
+  color: var(--wearme-white) !important;
+  opacity: 0.65;
 }
 
 .wearme-header .wearme-admin-dropdown .dropdown-toggle {
@@ -182,7 +238,7 @@ table th {
   padding: 0;
   border-radius: 0;
   background-color: transparent;
-  color: var(--wearme-navy) !important;
+  color: var(--wearme-dark-brown) !important;
   font-family: var(--bs-font-sans-serif);
   font-weight: 600;
   text-transform: lowercase;
@@ -191,7 +247,22 @@ table th {
 .wearme-header .wearme-admin-dropdown .dropdown-toggle:hover,
 .wearme-header .wearme-admin-dropdown .dropdown-toggle:focus {
   background-color: transparent;
-  color: var(--wearme-navy-hover) !important;
+  color: var(--wearme-dark-brown) !important;
+}
+
+.wearme-header .dropdown-menu {
+  background-color: var(--wearme-light-brown);
+  border-color: var(--wearme-dark-brown);
+}
+
+.wearme-header .dropdown-item {
+  color: var(--wearme-dark-brown);
+}
+
+.wearme-header .dropdown-item:hover,
+.wearme-header .dropdown-item:focus {
+  background-color: var(--wearme-white);
+  color: var(--wearme-dark-brown);
 }
 
 .wearme-admin-table {
@@ -205,44 +276,44 @@ table th {
 }
 
 .wearme-admin-table thead th {
-  background-color: var(--wearme-navy) !important;
-  color: var(--wearme-light-blue) !important;
-  border: 1px solid var(--wearme-light-blue);
-  box-shadow: inset 0 0 0 9999px var(--wearme-navy) !important;
+  background-color: var(--wearme-burgundy) !important;
+  color: var(--wearme-white) !important;
+  border: 1px solid var(--wearme-light-brown);
+  box-shadow: inset 0 0 0 9999px var(--wearme-burgundy) !important;
 }
 
 .wearme-admin-table tbody tr > * {
-  background-color: #fdf6e3 !important;
-  color: var(--wearme-navy) !important;
+  background-color: var(--wearme-white) !important;
+  color: var(--wearme-dark-brown) !important;
   border: none;
   box-shadow: none !important;
 }
 
 .wearme-admin-table tbody tr:nth-of-type(odd) > * {
-  background-color: #faf0c8 !important;
+  background-color: #f4e6d4 !important;
 }
 
 .wearme-admin-table.table-hover tbody tr:hover > * {
-  background-color: #f5e6af !important;
-  color: var(--wearme-navy) !important;
+  background-color: var(--wearme-light-brown) !important;
+  color: var(--wearme-dark-brown) !important;
 }
 
 .wearme-toast-container .Toastify__toast {
-  background: #fff4b8;
-  color: var(--wearme-navy);
-  border: 1px solid #e2ca55;
-  box-shadow: 0 0.5rem 1rem rgba(16, 42, 86, 0.2);
+  background: var(--wearme-light-brown);
+  color: var(--wearme-dark-brown);
+  border: 1px solid var(--wearme-dark-brown);
+  box-shadow: 0 0.5rem 1rem rgba(62, 36, 23, 0.25);
 }
 
 .wearme-toast-container .Toastify__toast-body,
 .wearme-toast-container .Toastify__close-button {
-  color: var(--wearme-navy);
+  color: var(--wearme-dark-brown);
 }
 
 .wearme-toast-container .Toastify__toast-icon svg {
-  fill: var(--wearme-navy);
+  fill: var(--wearme-dark-brown);
 }
 
 .wearme-toast-container .Toastify__progress-bar {
-  background: var(--wearme-navy);
+  background: var(--wearme-burgundy);
 }

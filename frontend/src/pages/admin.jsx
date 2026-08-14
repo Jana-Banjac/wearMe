@@ -37,7 +37,7 @@ const Admin = () => {
                     <h2>Manage Products</h2>
                 </div>
                 
-                <Table striped hover responsive className='table-sm mb-0'>
+                <Table striped hover responsive className='table-sm mb-0 wearme-admin-table'>
                     <thead>
                         <tr>
                             <th>ID</th>

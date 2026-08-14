@@ -181,7 +181,7 @@ const ProfileScreen = () => {
             striped
             hover
             responsive
-            className='table-sm'
+            className='table-sm wearme-admin-table'
           >
             <thead>
               <tr>

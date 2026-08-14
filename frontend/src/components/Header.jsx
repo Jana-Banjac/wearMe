@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.jpg'
 import {FaShoppingCart, FaUser} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { Badge, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
@@ -43,9 +43,7 @@ const Header = () => {
               <img
                 src={logo}
                 alt="wearMe | Online Clothing Store"
-                width="30"
-                height="30"
-                className="d-inline-block align-top me-2"
+                className="wearme-logo d-inline-block align-top me-2"
               />
 
               <span className="fw-semibold">
