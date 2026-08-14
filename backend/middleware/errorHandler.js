@@ -8,8 +8,8 @@ const errorHandler = (err, req, res, next) => {
     // ispisujemo stack trace greske u konzolu
     console.log(err.stack)
 
-    // proveravamo da li je status kod vec postavljen na odgovoru, ako nije dodeljujemo 500 za serversku gresku
-    const status = res.statusCode ? res.statusCode : 500 // server error
+    // zadrzavamo eksplicitno postavljen status; defaultni Express status 200 menjamo u 500
+    const status = res.statusCode !== 200 ? res.statusCode : 500
 
     // postavljamo http status kod odgovora
     res.status(status)

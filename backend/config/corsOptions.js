@@ -1,12 +1,21 @@
 // uvozimo niz dozvoljenih origin adresa iz lokalnog fajla allowedorigins
 const allowedOrigins = require('./allowedOrigins')
 
+const isLocalDevelopmentOrigin = (origin) => {
+    try {
+        const { hostname } = new URL(origin)
+        return ['localhost', '127.0.0.1', '[::1]'].includes(hostname)
+    } catch {
+        return false
+    }
+}
+
 // definisemo cors opcije za konfigurisanje cors paketa
 const corsOptions = {
     // funkcija za proveru da li je zahtev sa dozvoljenog izvora
     origin: (origin, callback) => {
-        // proveravamo da li se origin nalazi u nizu dozvoljenih ili ako origin ne postoji npr server-to-server zahtevi
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        // dozvoljavamo eksplicitne produkcione origin-e i lokalni razvoj na bilo kom portu
+        if (allowedOrigins.includes(origin) || isLocalDevelopmentOrigin(origin) || !origin) {
             // dozvoljavamo zahtev bez greske
             callback(null, true)
         } else {
